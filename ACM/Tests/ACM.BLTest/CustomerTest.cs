@@ -1,5 +1,4 @@
-﻿using System;
-using ACM.BL;
+﻿using ACM.BL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ACM.BLTest
@@ -11,11 +10,11 @@ namespace ACM.BLTest
         public void FullNameTestValid()
         {
             //Arrange
-            Customer customer = new Customer {FirstName = "Bilbo", LastName = "Baggins"};
-            string expected = "Baggins, Bilbo";
+            var customer = new Customer {FirstName = "Bilbo", LastName = "Baggins"};
+            var expected = "Baggins, Bilbo";
 
             //Act
-            string actual = customer.FullName;
+            var actual = customer.FullName;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -25,11 +24,11 @@ namespace ACM.BLTest
         public void FullNameFirstNameEmpty()
         {
             //Arrange
-            Customer customer = new Customer {LastName = "Baggins"};
-            string expected = "Baggins";
+            var customer = new Customer {LastName = "Baggins"};
+            var expected = "Baggins";
 
             //Act
-            string actual = customer.FullName;
+            var actual = customer.FullName;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -39,11 +38,11 @@ namespace ACM.BLTest
         public void FullNameLastNameEmpty()
         {
             //Arrange
-            Customer customer = new Customer {FirstName = "Bilbo"};
-            string expected = "Bilbo";
+            var customer = new Customer {FirstName = "Bilbo"};
+            var expected = "Bilbo";
 
             //Act
-            string actual = customer.FullName;
+            var actual = customer.FullName;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -70,5 +69,40 @@ namespace ACM.BLTest
             //Assert
             Assert.AreEqual(3, Customer.InstanceCount);
         }
+
+        [TestMethod]
+        public void ValidateValid()
+        {
+            //Arrange
+            var customer = new Customer
+            {
+                LastName = "Baggins",
+                EmailAddress = "fbaggins@hobbiton.me"
+            };
+            var expected = true;
+
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+ 
+        [TestMethod]
+        public void ValidateMissingLastName()
+        {
+            //Arrange
+            var customer = new Customer
+            {
+                EmailAddress = "fbaggins@hobbiton.me"
+            };
+            var expected = false;
+
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }  
     }
 }
