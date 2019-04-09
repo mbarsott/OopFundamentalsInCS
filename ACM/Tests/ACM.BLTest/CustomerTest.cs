@@ -87,7 +87,7 @@ namespace ACM.BLTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
- 
+
         [TestMethod]
         public void ValidateMissingLastName()
         {
@@ -103,6 +103,6 @@ namespace ACM.BLTest
 
             //Assert
             Assert.AreEqual(expected, actual);
-        }  
+        }
     }
 }
