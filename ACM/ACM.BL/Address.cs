@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
-    public class Address
+    public class Address : EntityBase
     {
         public Address()
         {
@@ -28,10 +21,10 @@ namespace ACM.BL
         public string StreetLine2 { get; set; }
 
         /// <summary>
-        /// Validates the address data.
+        ///     Validates the address data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (PostalCode == null) isValid = false;

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Order
+    public class Order:EntityBase
     {
         public Order() : this(0)
         {
@@ -24,7 +21,12 @@ namespace ACM.BL
         public List<OrderItem> OrderItems { get; set; }
         public int ShippingAddress { get; set; }
 
-        public bool Validate()
+        public override string ToString()
+        {
+            return $"{OrderDate.Value.Date} ({OrderId})";
+        }
+
+        public override bool Validate()
         {
             var isValid = true;
             if (OrderDate == null) isValid = false;
