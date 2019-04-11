@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{40A670FC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.BLTest", "Tests\ACM.BLTest\ACM.BLTest.csproj", "{29D07F12-4288-4290-8359-5CE11EC16EF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Common", "Acme.Common\Acme.Common.csproj", "{5D520F4E-5BA4-4F86-8DAB-18E69BF58149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.CommonTest", "Acme.CommonTest\Acme.CommonTest.csproj", "{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +27,21 @@ Global
 		{29D07F12-4288-4290-8359-5CE11EC16EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D07F12-4288-4290-8359-5CE11EC16EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D07F12-4288-4290-8359-5CE11EC16EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D520F4E-5BA4-4F86-8DAB-18E69BF58149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D520F4E-5BA4-4F86-8DAB-18E69BF58149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D520F4E-5BA4-4F86-8DAB-18E69BF58149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D520F4E-5BA4-4F86-8DAB-18E69BF58149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{29D07F12-4288-4290-8359-5CE11EC16EF7} = {40A670FC-86D1-49B9-B76F-6FE5FDE9D3BA}
+		{B23324DF-DA1E-4D8B-BFAB-3B3FD31704F5} = {40A670FC-86D1-49B9-B76F-6FE5FDE9D3BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFA15FFE-225D-471B-990E-1664B4077CCD}

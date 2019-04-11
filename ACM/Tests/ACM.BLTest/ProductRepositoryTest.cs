@@ -8,7 +8,7 @@ namespace ACM.BLTest
     public class ProductRepositoryTest
     {
         [TestMethod]
-        public void RetrieveTEst()
+        public void RetrieveTest()
         {
             //Arrange
             var productRepository = new ProductRepository();
@@ -27,6 +27,7 @@ namespace ACM.BLTest
             Assert.AreEqual(expected.ProductDescription, actual.ProductDescription);
             Assert.AreEqual(expected.ProductName, actual.ProductName);
         }
+
         [TestMethod]
         public void SaveTestValid()
         {
