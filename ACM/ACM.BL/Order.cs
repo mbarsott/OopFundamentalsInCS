@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Acme.Common;
+using System;
 using System.Collections.Generic;
 
 namespace ACM.BL
 {
-    public class Order:EntityBase
+    public class Order : EntityBase, ILoggable
     {
         public Order() : this(0)
         {
@@ -26,10 +27,16 @@ namespace ACM.BL
             return $"{OrderDate.Value.Date} ({OrderId})";
         }
 
+        public string Log() => $"{OrderId}: Date: {this.OrderDate.Value.Date} Status: {this.EntityState.ToString()}";
+
         public override bool Validate()
         {
             var isValid = true;
-            if (OrderDate == null) isValid = false;
+            if (OrderDate == null)
+            {
+                isValid = false;
+            }
+
             return isValid;
         }
     }

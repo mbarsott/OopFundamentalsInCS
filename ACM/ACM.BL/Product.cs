@@ -2,7 +2,7 @@
 
 namespace ACM.BL
 {
-    public class Product : EntityBase
+    public class Product : EntityBase, ILoggable
     {
         public Product()
         {
@@ -18,10 +18,13 @@ namespace ACM.BL
 
         public string ProductName
         {
-//            get { return StringHandler.InsertSpaces(_productName); }
+            //            get { return StringHandler.InsertSpaces(_productName); }
             get { return _productName.InsertSpaces(); }
             set { _productName = value; }
         }
+
+        public string Log() =>
+            $"{ProductId}: {ProductName} Detail: {ProductDescription} Status: {EntityState.ToString()}";
 
         public string ProductDescription { get; set; }
         public decimal? CurrentPrice { get; set; }
@@ -35,8 +38,16 @@ namespace ACM.BL
         public override bool Validate()
         {
             var isValid = true;
-            if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;
-            if (CurrentPrice == null) isValid = false;
+            if (string.IsNullOrWhiteSpace(ProductName))
+            {
+                isValid = false;
+            }
+
+            if (CurrentPrice == null)
+            {
+                isValid = false;
+            }
+
             return isValid;
         }
     }

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Acme.Common;
+using System.Collections.Generic;
 
 namespace ACM.BL
 {
-    public class Customer : EntityBase
+    public class Customer : EntityBase, ILoggable
     {
         public Customer() : this(0)
         {
@@ -27,7 +28,10 @@ namespace ACM.BL
                 var fullName = LastName;
                 if (!string.IsNullOrWhiteSpace(FirstName))
                 {
-                    if (!string.IsNullOrWhiteSpace(fullName)) fullName += ", ";
+                    if (!string.IsNullOrWhiteSpace(fullName))
+                    {
+                        fullName += ", ";
+                    }
 
                     fullName += FirstName;
                 }
@@ -40,10 +44,18 @@ namespace ACM.BL
 
         public string LastName { get; set; }
 
-        public override string ToString()
-        {
-            return FullName;
-        }
+        //        public string Log()
+        //        {
+        //            var logString = CustomerId + ": " +
+        //                            FullName + " " +
+        //                            "Email: " + EmailAddress + " " +
+        //                            "Status: " + EntityState.ToString();
+        //            return logString;
+        //        }
+
+        public string Log() => $"{CustomerId}: {FirstName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+
+        public override string ToString() => FullName;
 
         /// <summary>
         ///     Validates the customer data.
@@ -53,8 +65,15 @@ namespace ACM.BL
         {
             var isValid = true;
 
-            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
-            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+            if (string.IsNullOrWhiteSpace(LastName))
+            {
+                isValid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(EmailAddress))
+            {
+                isValid = false;
+            }
 
             return isValid;
         }
